@@ -1,8 +1,12 @@
 # FarMar Finder
 
+## Authors
+- Rachelle Keblitis
+
 In this assignment we will be creating an application to look up Farmers Markets and their related vendors, products, and sales. We will use CSV files as our database.
 
 ### Getting Started
+
 
 1. Pair up!
 2. The individual closest to the center of the room will fork the repo: [https://github.com/Ada-Developers-Academy/far_mar](https://github.com/Ada-Developers-Academy/far_mar)
