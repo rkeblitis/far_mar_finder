@@ -4,7 +4,7 @@ module FarMar
 
     def initialize(sale_row)
       @id            = sale_row[0].to_i
-      @amount        = sale_row[1]
+      @amount        = sale_row[1].to_i #(in cents)
       @purchase_time = sale_row[2]
       @vendor_id     = sale_row[3].to_i
       @product_id    = sale_row[4].to_i
@@ -13,7 +13,7 @@ module FarMar
     @@sale = nil
     def self.all
       if @@sale.nil?
-        sale_data = CSV.read("support/sale.csv")
+        sale_data = CSV.read("support/sales.csv")
         @@sale = sale_data.map { |row| FarMar::Sale.new(row) }
       end
       @@sale

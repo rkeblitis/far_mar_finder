@@ -37,7 +37,19 @@ module FarMar
     #products - returns a collection of FarMar::Product instances that are
     #associated with market by the FarMar::Product vendor_id field.
     def products
-      FarMar::Product.all.find_all { |product| product.vendor_id == @id}
+      FarMar::Product.all.find_all { |product| product.vendor_id == @id }
+    end
+
+    #sales - returns a collection of FarMar::Sale instances that are
+    #associated with market by the vendor_id field.
+    def sales
+      FarMar::Sale.all.find_all { |sale| sale.vendor_id == @id }
+    end
+    #revenue - returns the the sum of all of the vendor's sales (in cents)
+
+    def revenue
+      sales.map { |sales| sales.amount}.reduce(:+) #how can we do this with
+      #reduce inside the {} 
     end
 
   end
