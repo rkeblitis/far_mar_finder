@@ -49,9 +49,13 @@ module FarMar
 
     def revenue
       sales.map { |sales| sales.amount}.reduce(:+) #how can we do this with
-      #reduce inside the {} 
+      #reduce inside the {}
     end
 
+    #self.by_market(market_id) - returns all of the vendors with the given market_id
+    def self.by_market(market_id)
+      self.all.find_all { |vendors| vendors.market_id == market_id}
+    end
   end
 
 end
