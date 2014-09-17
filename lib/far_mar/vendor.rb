@@ -7,7 +7,6 @@ module FarMar
       @name             = vendor_row[1]
       @no_of_employees  = vendor_row[2]
       @market_id        = vendor_row[3].to_i
-      @products         = []
     end
 
     @@vendors = nil
@@ -33,6 +32,12 @@ module FarMar
     #to call this method: FarMar::Vendor.find(id).market
     def market
       FarMar::Market.all.find_all { |market| market.id == @market_id }
+    end
+
+    #products - returns a collection of FarMar::Product instances that are
+    #associated with market by the FarMar::Product vendor_id field.
+    def products
+      FarMar::Product.all.find_all { |product| product.vendor_id == @id}
     end
 
   end

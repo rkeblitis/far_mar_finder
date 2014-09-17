@@ -5,7 +5,7 @@ module FarMar
     def initialize(product_row)
       @id         = product_row[0].to_i
       @name       = product_row[1]
-      @vendor_id  = product_row[2]
+      @vendor_id  = product_row[2].to_i
     end
 
     @@products = nil

@@ -6,8 +6,8 @@ module FarMar
       @id            = sale_row[0].to_i
       @amount        = sale_row[1]
       @purchase_time = sale_row[2]
-      @vendor_id     = sale_row[3]
-      @product_id    = sale_row[4]
+      @vendor_id     = sale_row[3].to_i
+      @product_id    = sale_row[4].to_i
     end
 
     @@sale = nil
