@@ -4,8 +4,8 @@ module FarMar
 
     def initialize(sale_row)
       @id            = sale_row[0].to_i
-      @amount        = sale_row[1].to_i #(in cents)
-      @purchase_time = Time.parse(sale_row[2]) # right format? 2013-11-07 04:34:56 -0800
+      @amount        = sale_row[1].to_i #in cents
+      @purchase_time = Time.parse(sale_row[2])
       @vendor_id     = sale_row[3].to_i
       @product_id    = sale_row[4].to_i
     end
@@ -38,10 +38,11 @@ module FarMar
 
     #returns a collection of FarMar::Sale objects where the purchase time is
     #between the two times given as arguments
+    #beginning and end times should be entered as YY-MM-DD
     def self.between(beginning_time, end_time)
-      beginning_time = Time.parse(beginning_time)
-      end_time       = Time.parse(end_time)
-      self.all.find_all { |sale| sale.purchase_time.between?(beginning_time, end_time) }
+      first_time  = Time.parse(beginning_time)
+      second_time = Time.parse(end_time)
+      self.all.find_all { |sale| sale.purchase_time.between?(first_time, second_time) }
     end
 
   end
