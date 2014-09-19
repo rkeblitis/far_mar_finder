@@ -1,4 +1,5 @@
 module FarMar
+  # Creates Market class using market.csv
   class Market
     attr_accessor :id, :name, :address, :city, :county, :state, :zip
 
@@ -12,20 +13,20 @@ module FarMar
       @zip     = market_row[6]
     end
 
-    #reads in the CSV market data as an array of arrays
-    #creates a new array filled with all market objects
-    @@markets = nil
+    # creates a new array filled with all market objects
     def self.all
-      if @@markets.nil?
-        market_data = CSV.read("support/markets.csv")
-        @@markets = market_data.map { |row| FarMar::Market.new(row) }
-      end
-      @@markets
+      @markets ||= make_market_instances
     end
 
-    #self.find(id) - returns the row where the ID field matches the argument
+    # reads in the CSV market data as an array of arrays
+    def self.make_market_instances
+      market_data = CSV.read("support/markets.csv")
+      market_data.map { |row| FarMar::Market.new(row) }
+    end
+
+    # returns the row where the ID field matches the argument
     def self.find(id)
-      self.all.find { |market| market.id == id }
+      all.find { |market| market.id == id }
     end
 
     # returns a collection of FarMar::Vendor instances that are
@@ -34,22 +35,22 @@ module FarMar
       FarMar::Vendor.all.find_all { |vendor| vendor.market_id == @id }
     end
 
-    #returns a collection of FarMar::Product instances that are associated to
-    #the market through the FarMar::Vendor class.
+    # returns a collection of FarMar::Product instances that are associated to
+    # the market through the FarMar::Vendor class.
     def products
       FarMar::Vendor.by_market(@id).map { |vendor| vendor.products }
     end
 
-    #returns a collection of FarMar::Market instances
-    #where the market name or vendor name contain the search_term. For example
-    #FarMar::Market.search('school') would return 3 results, one being the
-    #market with id 75 (Fox School Farmers FarMar::Market).
+    # returns a collection of FarMar::Market instances
+    # where the market name or vendor name contain the search_term. For example
+    # FarMar::Market.search('school') would return 3 results, one being the
+    # market with id 75 (Fox School Farmers FarMar::Market).
     def self.search(search_term)
-      self.all.find_all do |market|
-        market.name.include?(search_term.capitalize) ||
-        market.vendors.any? { |vendor| vendor.name.include?(search_term.capitalize) }
+      search_term = search_term.captialize
+      all.find_all do |market|
+        market.name.include?(search_term) ||
+        market.vendors.any? { |vendor| vendor.name.include?(search_term) }
       end
     end
-
   end
 end
