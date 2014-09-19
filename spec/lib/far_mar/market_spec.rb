@@ -13,6 +13,15 @@ describe FarMar::Market do
     it "responds to 'find'" do
       expect(FarMar::Market).to respond_to :find
     end
+
+    it "search should return"
+    # returns a collection of FarMar::Sale objects where the purchase time is
+# between the two times given as arguments
+# beginning and end times should be entered as YY-MM-DD
+# def self.between(beginning_time, end_time)
+#   time_one  = Time.parse(beginning_time)
+#   time_two = Time.parse(end_time)
+#   all.find_all { |sale| sale.purchase_time.between?(time_one, time_two) }
   end
 
   describe "attributes" do
@@ -59,7 +68,7 @@ describe FarMar::Market do
     it "finds the products" do
       expect(market.products.first.name).to eq "Dry Beets"
     end
-    
+
   end
 
 end
