@@ -21,7 +21,6 @@ describe FarMar::Market do
     it "'search('school')' should return" do
       expect(FarMar::Market.search('school').first.id).to eq 75
     end
-
   end
 
   describe "attributes" do
@@ -52,7 +51,6 @@ describe FarMar::Market do
     it "has the zip '97202'" do
       expect(market.zip).to eq "97202"
     end
-
   end
 
   describe "instance methods" do
@@ -68,7 +66,5 @@ describe FarMar::Market do
     it "finds the products" do
       expect(market.products.first.name).to eq "Dry Beets"
     end
-
   end
-
 end

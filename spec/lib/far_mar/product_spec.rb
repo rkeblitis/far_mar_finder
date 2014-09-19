@@ -67,7 +67,5 @@ describe FarMar::Product do
     it "has 2 sales" do
       expect(product.number_of_sales). to eq 2
     end
-
   end
-
 end

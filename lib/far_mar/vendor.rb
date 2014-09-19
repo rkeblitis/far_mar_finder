@@ -46,7 +46,7 @@ module FarMar
     # returns the the sum of all of the vendor's sales (in cents)
     def revenue
       sales.map { |sales| sales.amount }.reduce(:+)
-      # how can we do this with reduce inside the {}
+      # any way to add reduce to the initial chain?
     end
 
     # returns all of the vendors with the given market_id

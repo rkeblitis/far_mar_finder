@@ -21,7 +21,6 @@ describe FarMar::Sale do
     it "'between' should return" do
       expect(FarMar::Sale.between("13-11-07", "13-11-08").count).to eq 1816
     end
-
   end
 
   describe "attributes" do
@@ -47,7 +46,6 @@ describe FarMar::Sale do
     it "has the product_id 1" do
       expect(sale.product_id).to eq 1
     end
-
   end
 
   describe "instance methods" do

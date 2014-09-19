@@ -38,8 +38,7 @@ module FarMar
     end
 
     # returns a collection of FarMar::Sale objects where the purchase time is
-    # between the two times given as arguments
-    # beginning and end times should be entered as YY-MM-DD
+    # between the two times given as "YY-MM-DD" arguments
     def self.between(beginning_time, end_time)
       time_one  = Time.parse(beginning_time)
       time_two = Time.parse(end_time)

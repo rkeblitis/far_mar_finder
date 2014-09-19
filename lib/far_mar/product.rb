@@ -22,14 +22,14 @@ module FarMar
       all.find { |product| product.id == id }
     end
 
-    # returns the FarMar::Vendor instance that is associated with
+    # returns the FarMar::Vendor instance associated with
     # this vendor using the FarMar::Product vendor_id field
     def vendor
       FarMar::Vendor.all.find { |vendor| vendor.id == @vendor_id }
     end
 
     # returns a collection of FarMar::Sale instances that are
-    # associated using the FarMar::Sale product_id field.
+    # associated using the FarMar::Sale product_id field
     def sales
       FarMar::Sale.all.find_all { |sale| sale.product_id == @id }
     end
