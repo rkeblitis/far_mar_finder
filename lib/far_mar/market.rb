@@ -45,7 +45,10 @@ module FarMar
     #FarMar::Market.search('school') would return 3 results, one being the
     #market with id 75 (Fox School Farmers FarMar::Market).
     def self.search(search_term)
-      
+      self.all.find_all do |market|
+        market.name.include?(search_term.capitalize) ||
+        market.vendors.any? { |vendor| vendor.name.include?(search_term.capitalize) }
+      end
     end
 
   end
