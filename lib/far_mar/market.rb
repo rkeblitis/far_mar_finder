@@ -38,8 +38,9 @@ module FarMar
     # returns a collection of FarMar::Product instances that are associated to
     # the market through the FarMar::Vendor class.
     def products
-      FarMar::Vendor.by_market(@id).map { |vendor| vendor.products }
+      FarMar::Vendor.by_market(@id).flat_map { |vendor| vendor.products }
     end
+
 
     # returns a collection of FarMar::Market instances
     # where the market name or vendor name contain the search_term. For example

@@ -56,6 +56,5 @@ describe FarMar::Sale do
     it "has the product" do
       expect(sale.product.id).to eq sale.product_id
     end
-
   end
 end
