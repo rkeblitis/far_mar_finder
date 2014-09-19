@@ -36,7 +36,7 @@ module FarMar
 
     # returns the number of times this product has been sold
     def number_of_sales
-      sales.map.count
+      sales.count
     end
 
     # returns all of the products with the given vendor_id

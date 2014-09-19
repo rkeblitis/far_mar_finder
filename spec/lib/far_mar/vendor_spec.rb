@@ -68,6 +68,15 @@ describe FarMar::Vendor do
     it "has 1 products" do
       expect(vendor.products.count).to eq 1
     end
+
+    it "responds to revenue" do
+      expect(vendor).to respond_to :revenue
+    end
+
+    it "has revenue of 38259" do
+      expect(vendor.revenue).to eq 38259  
+    end
+
   end
 
 end

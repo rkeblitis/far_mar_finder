@@ -22,7 +22,6 @@ describe FarMar::Market do
       expect(FarMar::Market.search('school').first.id).to eq 75
     end
 
-
   end
 
   describe "attributes" do
