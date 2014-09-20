@@ -66,5 +66,14 @@ describe FarMar::Market do
     it "finds the products" do
       expect(market.products.first.name).to eq "Dry Beets"
     end
+
+    # # returns the vendor with the highest revenue
+    # def preferred_vendor
+    #   FarMar::Vendor.by_market(@id).max_by { |vendor| vendor.revenue }
+    # end
+    #
+    # it "responds to preferred_vendor" do
+    #   expect(market)
+    # end
   end
 end

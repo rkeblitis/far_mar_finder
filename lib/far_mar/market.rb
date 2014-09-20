@@ -50,5 +50,10 @@ module FarMar
         market.vendors.any? { |vendor| vendor.name.include?(search_term) }
       end
     end
+
+    # returns the vendor with the highest revenue
+    def preferred_vendor
+      FarMar::Vendor.by_market(@id).max_by { |vendor| vendor.revenue }
+    end
   end
 end

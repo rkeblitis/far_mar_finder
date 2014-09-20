@@ -74,7 +74,7 @@ describe FarMar::Vendor do
     end
 
     it "has revenue of 38259" do
-      expect(vendor.revenue).to eq 38259
+      expect(vendor.revenue).to eq 38259      
     end
   end
 end
